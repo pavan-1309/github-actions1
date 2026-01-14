@@ -7,4 +7,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Hello world action step
-              run: echo "Hello, world!"
+              run: echo "Hello, world! from inline bash script step"
+    hello-from-python:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Hello from Python
+              steps:
+                run: print("Hello from Python script")
+                shell: python
+   
