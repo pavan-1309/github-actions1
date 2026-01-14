@@ -15,7 +15,7 @@ jobs:
         shell: python
   job3:
     runs-on: ubuntu-latest
-    needs: job1, job2
+    needs: [job1, job2]
     steps:
       - name: Job 3 - Hello from JavaScript
         uses: actions/github-script@v6
@@ -23,7 +23,7 @@ jobs:
           script: console.log('Hello from Job 3 - JavaScript action step')
   job4:
     runs-on: ubuntu-latest
-    needs: job2, job3
+    needs: [job2, job3]
     steps:
       - name: Job 4 - Final Message
         run: echo "All previous jobs completed successfully!"
