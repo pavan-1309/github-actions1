@@ -1,0 +1,10 @@
+name: Triggering Events
+on: 
+    push:
+        branches: [ pavan ]
+    workflow_dispatch:
+jobs:
+    trigger-multijob-with-dependency:
+        uses: ./.github/workflows/multijob-with-dependency.yml
+    trigger-hello-world:
+        uses: ./.github/workflows/hello.yml
