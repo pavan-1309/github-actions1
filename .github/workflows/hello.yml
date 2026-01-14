@@ -20,5 +20,5 @@ jobs:
             - name: Hello from JavaScript
               uses: actions/github-script@v6
               with:
-                greeting: 'Hello from JavaScript action step'
+                script: console.log('Hello from JavaScript action step')
 
