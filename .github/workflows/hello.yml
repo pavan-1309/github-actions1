@@ -24,4 +24,10 @@ jobs:
     steps:
       - name: print secret
         run: echo "my secret is ${{ secrets.MY_NAME }}"
+  print-my-variable:
+    runs-on: ubuntu-latest
+    needs: print-my-secret
+    steps:
+      - name: print variable
+        run: echo "my variable is ${{ vars.NAME }}"
         
