@@ -1,8 +1,15 @@
 name: demo workflow
-on: workflow_dispatch
+on: push
 jobs:
   wish:
     runs-on: ubuntu-latest
     steps:
       - name: say hello
         run: echo "hello world"
+  pyhton-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: use python shell
+        run: |
+          python3 -c "print('hello from python')"
+        
