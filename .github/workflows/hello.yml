@@ -2,30 +2,30 @@ name: demo workflow
 on: push
 jobs:
   wish:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted 
     steps:
       - name: say hello
         run: echo "hello world"
   pyhton-test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: use python shell
         run: |
           python3 -c "print('hello from python')"
   third-job:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: [wish, pyhton-test]
     steps:
       - name: final step
         run: echo "all jobs are done"
   print-my-secret:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: third-job
     steps:
       - name: print secret
         run: echo "my secret is ${{ secrets.MY_NAME }}"
   print-my-variable:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: print-my-secret
     steps:
       - name: print variable
