@@ -1,10 +1,13 @@
 name: Triggering Events
 on: 
     push:
-        branches: [ pavan ]
+        branches: [ main ]
     workflow_dispatch:
 jobs:
-    trigger-multijob-with-dependency:
-        uses: ./.github/workflows/multijob-with-dependency.yml
-    trigger-hello-world:
-        uses: ./.github/workflows/hello.yml
+    echo-event:
+        runs-on: ubuntu-24.04
+        steps:
+          - name: Dump full event JSON
+            run: |
+              echo "=== $GITHUB_EVENT_NAME payload ==="
+              cat "$GITHUB_EVENT_PATH"
