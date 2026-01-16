@@ -12,4 +12,10 @@ jobs:
       - name: use python shell
         run: |
           python3 -c "print('hello from python')"
+  third-job:
+    runs-on: ubuntu-latest
+    needs: [wish, pyhton-test]
+    steps:
+      - name: final step
+        run: echo "all jobs are done"
         
