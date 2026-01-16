@@ -18,4 +18,10 @@ jobs:
     steps:
       - name: final step
         run: echo "all jobs are done"
+  print-my-secret:
+    runs-on: ubuntu-latest
+    needs: third-job
+    steps:
+      - name: print secret
+        run: echo "my secret is ${{ secrets.MY_NAME }}"
         
