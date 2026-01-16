@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: use python shell
         run: |
-          python3 -c "print('hello from python')"
+          python3 -c "print('hello from pytho
   third-job:
     runs-on: ubuntu-latest
     needs: [wish, pyhton-test]
