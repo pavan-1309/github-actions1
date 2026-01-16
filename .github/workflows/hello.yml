@@ -1,25 +1,8 @@
-name: hello-world
-on:
-  push:
-    branches: [ main ]
-  workflow_call:
+name: demo workflow
+on: workflow_dispatch
 jobs:
-    say-hello:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Hello world action step
-              run: echo "Hello, world! from inline bash script step"
-    hello-from-python:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Hello from Python
-              run: print("Hello from Python script")
-              shell: python
-    hello-from-javaScript:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Hello from JavaScript
-              uses: actions/github-script@v6
-              with:
-                script: console.log('Hello from JavaScript action step')
-
+  wish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: say hello
+        run: echo "hello world"

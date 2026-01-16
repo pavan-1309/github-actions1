@@ -1,7 +1,7 @@
 name: Triggering Events
 on: 
     push:
-        branches: [ pavan ]
+        branches: [ main ]
     workflow_dispatch:
 jobs:
     echo-event:
