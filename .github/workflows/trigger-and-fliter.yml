@@ -1,5 +1,5 @@
 name: Triggering Events
-on: workflow_dispatch:
+on: workflow_dispatch
 jobs:
     echo-event:
         runs-on: ubuntu-24.04

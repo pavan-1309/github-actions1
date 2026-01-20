@@ -6,4 +6,13 @@ jobs:
     steps:
       - name: printing hello Message
         run: echo "hello this is excuted on ubuntun runner"
+      - name: new task
+        run: touch 1.txt
+      - name: adding txt to file
+        run: echo "this is masater" > 1.txt
+      - name: checking file permissions
+        run: ls -lh 1.txt
+      - name: read the file
+        run: cat 1.txt
+    
         
