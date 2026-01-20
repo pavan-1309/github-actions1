@@ -1,5 +1,5 @@
 name: multiple jobs with dependency
-on: workflow_dispatch
+on: push 
 jobs:
   job1:
     runs-on: ubuntu-latest
