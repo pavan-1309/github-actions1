@@ -6,8 +6,13 @@ jobs:
     steps:
       - name: create a file
         run: touch icecream.txt
+      - name: added content to icecream.txt
+        run: echo "i like icecream's" > icecream.txt
+      - name: read icecream.txt
+        run: cat icecream.txt
   write:
     runs-on: ubuntu-latest
     steps:
-     - name: added content to icecream.txt
-       run: echo "i like icecream's" > icecream.txt
+     - name: echo "i like chocolates" >> icecream.txt
+     - name: read icecream.txt
+       run: cat icecream.txt
