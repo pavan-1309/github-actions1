@@ -1,25 +1,40 @@
 name: uploading and downloading files
-on: push 
+
+on: push
+
 jobs:
   create:
     runs-on: ubuntu-latest
-    uses: actions/upload-artifact@v4
-    with:
-      name: icecream.txt
     steps:
-      - name: create a file
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Create a file
         run: touch icecream.txt
-      - name: added content to icecream.txt
+
+      - name: Add content to icecream.txt
         run: echo "i like icecream's" > icecream.txt
-      - name: read icecream.txt
+
+      - name: Read icecream.txt
         run: cat icecream.txt
-      - name: path
-        run: pwd
-        
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: icecream
+          path: icecream.txt
+
   write:
     runs-on: ubuntu-latest
+    needs: create
     steps:
-     - name: adding new line  
-       run: echo "i like chocolates" >> icecream.txt
-     - name: read icecream.txt
-       run: cat icecream.txt
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: icecream
+
+      - name: Add new line to icecream.txt
+        run: echo "i like chocolates" >> icecream.txt
+
+      - name: Read updated file
+        run: cat icecream.txt
